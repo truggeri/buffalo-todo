@@ -61,6 +61,10 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		app.GET("/health", func(c buffalo.Context) error {
+			return c.Render(200, r.String("healthy"))
+		})
+
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
