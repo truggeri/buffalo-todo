@@ -65,6 +65,7 @@ func App() *buffalo.App {
 			return c.Render(200, r.String("healthy"))
 		})
 
+		app.Resource("/items", ItemsResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
